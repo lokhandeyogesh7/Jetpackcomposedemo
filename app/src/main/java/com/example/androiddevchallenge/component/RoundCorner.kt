@@ -12,10 +12,40 @@ import androidx.compose.ui.unit.dp
 
 @Preview
 @Composable
-fun RoundCorner(textStr:String){
-    Text(text = textStr,
-        color = Color.White,
-    modifier = Modifier
-        .background(color = Color.Magenta,shape = RoundedCornerShape(5.dp)).padding(top = 3.dp,bottom = 3.dp,start = 8.dp,end = 8.dp),
+fun RoundCorner(textStr: String) {
+    Text(
+        text = textStr,
+        color = when (textStr) {
+            "Male" -> {
+                Color.Blue
+            }
+            "Dog" -> {
+                Color.Red
+            }
+            "Cat" -> {
+                Color.Black
+            }
+            else -> {
+                Color(android.graphics.Color.parseColor("#FF1493"))
+            }
+        },
+        modifier = Modifier
+            .background(
+                color = when (textStr) {
+                    "Male" -> {
+                        Color.Blue.copy(0.08f)
+                    }
+                    "Dog" -> {
+                        Color.Red.copy(0.08f)
+                    }
+                    "Cat" -> {
+                        Color.Black.copy(0.08f)
+                    }
+                    else -> {
+                        Color(android.graphics.Color.parseColor("#FF1493")).copy(0.08f)
+                    }
+                }, shape = RoundedCornerShape(5.dp)
+            )
+            .padding(top = 6.dp, bottom = 6.dp, start = 12.dp, end = 12.dp),
     )
 }
