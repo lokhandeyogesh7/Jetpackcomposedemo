@@ -5,6 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.screens.PetList
+import com.example.androiddevchallenge.screens.petDetailsScreen
 
 @Composable
 fun ComposeNavigation(){
@@ -13,6 +14,10 @@ fun ComposeNavigation(){
     NavHost(navController = navController, startDestination = "petList") {
         composable("petList") {
             PetList(navController)
+        }
+
+        composable("petDetails/{index}"){
+            petDetailsScreen(navController,it.arguments?.getString("index"))
         }
     }
 }
